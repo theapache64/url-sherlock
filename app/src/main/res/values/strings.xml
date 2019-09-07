@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">URL Sherlock</string>
+    <string name="action_settings">Settings</string>
+    <string name="label_redirects_to">REDIRECTS TO</string>
+    <string name="loading">Loading…</string>
+    <string name="error_url_is_empty">URL is empty</string>
+    <string name="msg_please_wait">Please wait</string>
+    <string name="share_with_me">Share any URL with me, and I\'ll help you to reveal it!!</string>
+</resources>

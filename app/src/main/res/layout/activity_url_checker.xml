@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:trianglify="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.theapache64.urlsherlock.ui.activities.checker.UrlCheckerHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.theapache64.urlsherlock.ui.activities.checker.UrlCheckerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.theapache64.urlsherlock.ui.activities.checker.UrlCheckerActivity">
+
+
+        <com.manolovn.trianglify.TrianglifyView
+            android:id="@+id/trv_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            trianglify:bleedX="500"
+            trianglify:bleedY="500"
+            trianglify:cellSize="175"
+            trianglify:colorGenerator="com.manolovn.trianglify.generator.color.RandomColorGenerator"
+            trianglify:pointGenerator="com.manolovn.trianglify.generator.point.RegularPointGenerator"
+            trianglify:variance="75" />
+
+        <TextView
+            android:id="@+id/tv_source"
+            style="@style/black_box"
+            android:layout_margin="18dp"
+            android:onClick="@{()->handler.onSourceUrlClicked()}"
+            android:scrollHorizontally="true"
+            app:layout_constraintBottom_toTopOf="@id/tv_label_redirects_to"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="http://bit.ly/4534jhjh" />
+
+        <TextView
+            android:id="@+id/tv_label_redirects_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/white_box_bg_small"
+            android:padding="4dp"
+            android:text="@string/label_redirects_to"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_dest"
+            app:layout_constraintEnd_toEndOf="@id/tv_source"
+            app:layout_constraintStart_toStartOf="@id/tv_source"
+            app:layout_constraintTop_toBottomOf="@id/tv_source" />
+
+        <TextView
+            android:id="@+id/tv_dest"
+            style="@style/black_box"
+            android:layout_marginBottom="18dp"
+            android:onClick="@{()->handler.onDestinationUrlClicked()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tv_source"
+            app:layout_constraintStart_toStartOf="@id/tv_source"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_redirects_to"
+            tools:text="http://bit.ly/4534jhjh" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
